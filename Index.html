@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowTask — Manage Projects Without the Chaos</title>
+<meta name="description" content="FlowTask helps remote teams plan, track and ship 2x faster. Free 14-day trial. Concept demo by Maria Parsa Studio.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;color:#1a202c;line-height:1.6;background:#fff}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #edf2f7;z-index:100}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:1100px;margin:0 auto}
+.logo{font-weight:800;font-size:22px;color:#4f46e5}
+.logo span{color:#111}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:15px;color:#4a5568}
+.btn{display:inline-block;background:#4f46e5;color:#fff!important;padding:12px 28px;border-radius:8px;font-weight:600;border:none;cursor:pointer}
+.btn:hover{background:#4338ca}
+.btn-outline{background:#fff;color:#4f46e5!important;border:2px solid #4f46e5}
+.hero{text-align:center;padding:80px 20px 60px;background:linear-gradient(180deg,#eef2ff 0%,#fff 100%)}
+.hero h1{font-size:48px;line-height:1.15;margin-bottom:16px}
+.hero p{font-size:19px;color:#4a5568;max-width:640px;margin:0 auto 28px}
+.hero-form{display:flex;gap:10px;justify-content:center;max-width:480px;margin:0 auto}
+.hero-form input{flex:1;padding:13px 16px;border:1px solid #cbd5e0;border-radius:8px;font-size:15px}
+.small{font-size:13px;color:#718096;margin-top:12px}
+.logos{text-align:center;padding:24px;color:#a0aec0;font-size:14px;letter-spacing:1px}
+.logos strong{margin:0 14px;color:#718096}
+section{padding:64px 20px}
+h2{font-size:32px;text-align:center;margin-bottom:12px}
+.sub{text-align:center;color:#4a5568;max-width:600px;margin:0 auto 40px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.card{border:1px solid #e2e8f0;border-radius:12px;padding:28px}
+.card h3{margin-bottom:8px;font-size:19px}
+.card p{color:#4a5568;font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto;text-align:center}
+.step-num{background:#eef2ff;color:#4f46e5;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 12px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto}
+.price{border:2px solid #e2e8f0;border-radius:14px;padding:32px;text-align:center}
+.price.pop{border-color:#4f46e5;box-shadow:0 10px 30px rgba(79,70,229,.12)}
+.price h3{font-size:20px}
+.price .amount{font-size:42px;font-weight:800;margin:12px 0}
+.price ul{list-style:none;margin:20px 0;text-align:left;color:#4a5568;font-size:15px}
+.price li{margin-bottom:10px}
+.testis{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto}
+.testi{background:#f7fafc;border-radius:12px;padding:24px;font-style:italic}
+.testi b{display:block;margin-top:12px;font-style:normal;font-size:14px}
+.faq{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid #e2e8f0}
+.faq-q{width:100%;background:none;border:none;text-align:left;font-size:17px;font-weight:600;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between}
+.faq-a{display:none;padding:0 0 18px;color:#4a5568}
+.faq-item.open .faq-a{display:block}
+.cta{background:#4f46e5;color:#fff;text-align:center;padding:70px 20px;border-radius:0}
+.cta h2{color:#fff}
+.cta p{opacity:.9;margin-bottom:24px}
+.cta .btn{background:#fff;color:#4f46e5!important}
+footer{text-align:center;padding:28px;color:#718096;font-size:14px}
+#mobileBtn{display:none;font-size:26px;background:none;border:none;cursor:pointer}
+@media(max-width:768px){
+.hero h1{font-size:32px}
+.grid3,.pricing,.steps,.testis{grid-template-columns:1fr}
+.nav-links{display:none;flex-direction:column;position:absolute;top:60px;right:10px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;gap:12px}
+.nav-links.show{display:flex}
+#mobileBtn{display:block}
+.hero-form{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<div class="logo">Flow<span>Task</span></div>
+<button id="mobileBtn" aria-label="menu">☰</button>
+<div class="nav-links" id="navLinks">
+<a href="#features">Features</a>
+<a href="#how">How it works</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#trial" class="btn">Start Free Trial</a>
+</div>
+</nav>
+</header>
+<div class="hero" id="trial">
+<h1>Manage Projects Without the Chaos</h1>
+<p>FlowTask helps remote teams plan, track and ship 2x faster. Free 14-day trial, no credit card.</p>
+<form class="hero-form" id="leadForm" novalidate>
+<input type="email" id="email" placeholder="Enter your work email" required>
+<button class="btn" type="submit">Start Free</button>
+</form>
+<p class="small" id="formMsg">Free 14-day trial · No credit card · Cancel anytime</p>
+</div>
+<div class="logos">TRUSTED BY TEAMS AT <strong>NexaCo</strong> <strong>Brightly</strong> <strong>Loopin</strong> <strong>Hexlab</strong></div>
+<section id="features">
+<div class="container">
+<h2>Everything you need to ship faster</h2>
+<p class="sub">One workspace for tasks, time and team communication.</p>
+<div class="grid3">
+<div class="card"><h3>📋 Kanban Boards</h3><p>Drag-and-drop boards, sprints and priorities your team actually enjoys using.</p></div>
+<div class="card"><h3>⏱ Time Tracking</h3><p>One-click timers and reports. Know exactly where hours go.</p></div>
+<div class="card"><h3>🔌 Integrations</h3><p>Slack, GitHub, Google Calendar and 40+ tools connect in minutes.</p></div>
+</div>
+</div>
+</section>
+<section id="how" style="background:#f7fafc">
+<h2>How it works</h2>
+<p class="sub">Up and running in under 5 minutes.</p>
+<div class="steps">
+<div><div class="step-num">1</div><h3>Create project</h3><p>Import from Trello, Asana or start fresh with templates.</p></div>
+<div><div class="step-num">2</div><h3>Invite team</h3><p>Assign tasks, set deadlines and automate reminders.</p></div>
+<div><div class="step-num">3</div><h3>Ship faster</h3><p>Track progress in real time and celebrate launches.</p></div>
+</div>
+</section>
+<section id="pricing">
+<h2>Simple pricing</h2>
+<p class="sub">Start free, upgrade when you grow.</p>
+<div class="pricing">
+<div class="price"><h3>Starter</h3><div class="amount">$9</div><p>per user / month</p><ul><li>✓ 5 projects</li><li>✓ Kanban + calendar</li><li>✓ 5GB storage</li></ul><a href="#trial" class="btn btn-outline">Choose Starter</a></div>
+<div class="price pop"><h3>Pro</h3><div class="amount">$19</div><p>per user / month</p><ul><li>✓ Unlimited projects</li><li>✓ Time tracking + reports</li><li>✓ All integrations</li><li>✓ Priority support</li></ul><a href="#trial" class="btn">Choose Pro</a></div>
+<div class="price"><h3>Team</h3><div class="amount">$49</div><p>per user / month</p><ul><li>✓ Everything in Pro</li><li>✓ SSO + admin controls</li><li>✓ Dedicated manager</li></ul><a href="#trial" class="btn btn-outline">Contact Sales</a></div>
+</div>
+</section>
+<section style="background:#f7fafc">
+<h2>What teams say</h2>
+<p class="sub">Concept testimonials for demo purposes.</p>
+<div class="testis">
+<div class="testi">"We replaced 3 tools with FlowTask and cut meeting time in half."<b>— Sarah K., Product Lead (concept)</b></div>
+<div class="testi">"The fastest onboarding we've ever had. Team loved it from day one."<b>— Daniel M., Agency Founder (concept)</b></div>
+</div>
+</section>
+<section id="faq">
+<h2>FAQ</h2>
+<p class="sub">Quick answers.</p>
+<div class="faq">
+<div class="faq-item"><button class="faq-q">Is there a free trial? <span>+</span></button><div class="faq-a">Yes — 14 days free on all plans, no credit card required.</div></div>
+<div class="faq-item"><button class="faq-q">Can I cancel anytime? <span>+</span></button><div class="faq-a">Yes, one click from settings. Your data stays exportable for 30 days.</div></div>
+<div class="faq-item"><button class="faq-q">Do you offer discounts for startups? <span>+</span></button><div class="faq-a">Yes — 50% off for early-stage startups in the first year.</div></div>
+<div class="faq-item"><button class="faq-q">Is my data secure? <span>+</span></button><div class="faq-a">SOC2 compliant hosting, daily backups and GDPR-ready processing.</div></div>
+</div>
+</section>
+<div class="cta">
+<h2>Ready to ship 2x faster?</h2>
+<p>Join 2,000+ teams. Free 14-day trial.</p>
+<a href="#trial" class="btn">Start Free Trial</a>
+</div>
+<footer>FlowTask — Concept demo project by Maria Razi / Maria Parsa Studio · Built with HTML / CSS / JS · <a href="https://www.linkedin.com/in/maria-parsa">LinkedIn</a></footer>
+<script>
+// Mobile menu
+document.getElementById('mobileBtn').onclick = function(){document.getElementById('navLinks').classList.toggle('show')};
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(btn){
+btn.onclick = function(){
+var item = btn.parentElement;
+var wasOpen = item.classList.contains('open');
+document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+if(!wasOpen) item.classList.add('open');
+};
+});
+// Email validation
+document.getElementById('leadForm').onsubmit = function(e){
+e.preventDefault();
+var v = document.getElementById('email').value.trim();
+var msg = document.getElementById('formMsg');
+if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg.textContent = '✓ Thanks! Check your inbox to activate your trial (demo).';msg.style.color='#38a169';}
+else{msg.textContent = 'Please enter a valid email address.';msg.style.color='#e53e3e';}
+};
+</script>
+</body>
+</html>
